@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        body{
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #outer{
+            padding: 50px;
+            border: 2px solid black;
+            background-color: aqua;
+            cursor: pointer;
+        }
+        #inner{
+            padding: 50px;
+            border: 2px solid black;
+            background-color: rgba(99, 174, 174, 0.464);
+            cursor: move;
+            
+        }
+        #extra-inner{
+            padding: 50px;
+            border: 2px solid black;
+            background-color: rgba(44, 132, 132, 0.637);
+            cursor:help;
+
+        }
+        .container{
+            padding: 30px;
+        }
+    </style>
+<body>
+    <div class="container">
+        <div id="outer">outer
+            <div id="inner">
+                <div id="extra-inner">extra-inner</div>inner
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var outer = document.getElementById("outer");
+        var inner = document.getElementById("inner");
+        var extra_inner = document.getElementById("extra-inner");
+
+        const fun1 = () => {
+            console.log("on outer box");
+        }
+        const fun2 = () => {
+            console.log("on inner box");
+        }
+        const fun3 = (x) => {
+            console.log("on extra-inner box");
+            // x.stopPropagation();
+        }
+
+        // outer.addEventListener("click", fun1)
+        // inner.addEventListener("click", fun2)
+        // extra_inner.addEventListener("click", fun3)
+        
+        outer.addEventListener("click", fun1, true)
+        inner.addEventListener("click", fun2, true)
+        extra_inner.addEventListener("click", fun3, true)
+        
+    </script>
+</body>
+</html>

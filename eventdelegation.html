@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body{
+        padding: 0%;
+        background-color: rgba(30, 28, 28, 0.796);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vb;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        flex-direction: column;
+        color: white;
+        font-weight: 700;
+    }
+    li{
+        border: 1px solid gainsboro;
+        text-decoration: none;
+        padding: 7px;
+        list-style: none;
+        gap: 20px;
+        cursor: pointer;
+        &:hover{
+            background-color: rgba(30, 28, 28, 0.87);
+            transition: 0.3s;
+        }
+    }
+    ul{
+        gap: 29px;
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <p id = "text">choose what you would like to do</p>
+    <ul id="item">
+        <li>💕coding💕</li>
+        <li>😍OJEE😍</li>
+        <li>🤦‍♂️reels🤦‍♂️</li>
+        <li>💖talking💖</li>
+    </ul>
+    <p id="result"></p>
+
+    <script>
+        const fun = (e) => {
+            console.log(event.target);
+            // console.log("hi");
+            document.getElementById("result").textContent = "yah youra option is"+event.target.textContent;   
+            
+        }
+
+        document.getElementById("item").addEventListener("click", fun);
+    </script>
+</body>
+</html>
