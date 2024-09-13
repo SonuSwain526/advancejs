@@ -6,22 +6,65 @@
     <title>Document</title>
 </head>
 <style>
-    body{
+    body {
         background-image: linear-gradient(to right, #de7e2b, #6a88f1);
         padding: 0%;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
+        font-weight: 700;
+    }
+    #elem {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; /* Allow wrapping */
+    }
+    #elem div {
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        height: 45px;
+
+        &:hover{
+            box-shadow: 0.3px 0.2px 10px 1px black;
+            transition: 0.3s;
+            font-size: large;
+        }
+    }
+    .container{
+        max-width: 1100px;
     }
 </style>
 <body>
-    <h3>pereodic table</h3>
+    <div class="container">
+        <p id="elem"></p>
 
+    </div>
     <script>
-        for(let i=0; i<50; i++){
-            
+        const fun = (elem, atomino, seriano) => {
+            const x = document.createElement("div");
+            x.classList.add("x");
+            x.textContent = elem;
+
+            x.setAttribute("data-atomicno", atomino);
+            x.setAttribute("data-serialno", seriano);
+            return x;
         }
+        
+        for(let i = 1; i < 51; i++) {
+           var y =  fun(`elem${i}`, i, i);
+            document.querySelector("#elem").append(y);
+        }
+
+        const fun2 = (e) => {
+            alert(`Atomi no : ${event.target.getAttribute("data-atomicno")}\nSerial no : ${event.target.getAttribute("data-serialno")}`)
+        }
+
+        document.getElementById("elem").addEventListener("click", fun2)
     </script>
 </body>
 </html>
