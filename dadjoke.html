@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+</head>
+<style>
+    body{
+        background-color: rgb(7, 7, 22);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0%;
+        height: 100vh;
+        flex-direction: column;
+        color: white;
+        font-weight: 800;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    button{
+        padding: 8px;
+        border-radius: 8px;
+        font-size: large;
+        color: rgb(255, 255, 255);
+        font-weight: 800;
+        background-color: rgb(7, 7, 22);
+    }
+    button:hover {
+        background-color: rgba(7, 7, 22, 0.637);
+    }
+</style>
+<body>
+    <h1>Fresh your mood here 😀</h1>
+    <p class="joke"></p>
+    <button>New Joke</button>
+
+    <script>
+        const jokeAPI = "https://icanhazdadjoke.com/";
+
+        const funjoke = () => {
+            fetch(jokeAPI, {
+                headers: {
+                    Accept: "application/json"
+                }
+            })
+            .then((response) => response.json())
+            .then(data => {
+                document.querySelector(".joke").textContent = data.joke;
+            })
+            .catch(error => {
+                console.log("Error fetching joke:", error);
+            });
+        };
+        funjoke();
+        document.querySelector("button").addEventListener("click", funjoke);
+    </script>
+</body>
+</html>
